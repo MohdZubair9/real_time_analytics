@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import AnalyticsEvent
+from .serializers import AnalyticsEventSerializer
 
-# Create your views here.
+class AnalyticsEventCreateAPIView(generics.CreateAPIView):
+    queryset = AnalyticsEvent.objects.all()
+    serializer_class = AnalyticsEventSerializer
